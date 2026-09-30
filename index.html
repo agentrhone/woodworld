@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Wood World</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="hud">
+    <div class="stat"><span class="label">Wood</span><span id="wood">0</span><span class="dim">/ <span id="cap">0</span></span></div>
+    <div class="stat"><span class="label">Tool</span><span id="tool">Pocket Knife</span></div>
+    <div class="stat"><span class="label">Clearing</span><span id="clearing">0</span><span class="dim">tiles</span></div>
+    <div class="stat"><span class="label">Felled</span><span id="felled">0</span></div>
+    <div class="stat" id="helpers-stat" hidden><span class="label">Helpers</span><span id="helpers">0</span></div>
+  </div>
+
+  <button id="panel-toggle" aria-label="Toggle build menu">Build</button>
+  <aside id="panel">
+    <h2>Tools</h2>
+    <div id="tools"></div>
+    <h2>Build</h2>
+    <div id="buildings"></div>
+    <p class="hint" id="build-hint"></p>
+    <h2>How to play</h2>
+    <p class="hint">
+      Move with <b>WASD</b>/arrows, chop with <b>Space</b>.<br>
+      Or click/tap a tree to walk over and chop it.<br>
+      Bigger trees grow deeper in the forest — you'll need better tools.<br>
+      <b>Esc</b> cancels building. Scroll to zoom.
+    </p>
+    <button id="reset" class="danger">Reset game</button>
+  </aside>
+
+  <div id="toasts"></div>
+
+  <script src="game.js"></script>
+</body>
+</html>
