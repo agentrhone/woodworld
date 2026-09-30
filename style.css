@@ -3,6 +3,7 @@
 html, body {
   margin: 0;
   height: 100%;
+  color-scheme: dark;
   overflow: hidden;
   background: #0d1a0f;
   color: #f1ead8;
@@ -13,8 +14,8 @@ html, body {
 
 canvas {
   display: block;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   touch-action: none;
 }
 

@@ -872,8 +872,17 @@ function refreshUI() {
 $('panel-toggle').onclick = () => $('panel').classList.toggle('closed');
 if (window.innerWidth < 600) $('panel').classList.add('closed');
 
+let resetArmed = null;
 $('reset').onclick = () => {
-  if (!confirm('Start over with a fresh forest?')) return;
+  // Two clicks to reset (browser confirm dialogs aren't available everywhere).
+  if (!resetArmed) {
+    $('reset').textContent = 'Click again to start over';
+    resetArmed = setTimeout(() => { resetArmed = null; $('reset').textContent = 'Reset game'; }, 3000);
+    return;
+  }
+  clearTimeout(resetArmed);
+  resetArmed = null;
+  $('reset').textContent = 'Reset game';
   try { localStorage.removeItem(SAVE_KEY); } catch (e) { /* ignore */ }
   newGame();
   player.x = state.player.x; player.y = state.player.y;
